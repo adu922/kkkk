@@ -1,0 +1,102 @@
+import java.util.*; 
+class InvalidDateException extends Exception 
+{ 
+} 
+class MyDate 
+{ 
+ int day,month,year; 
+ public void accept() 
+ { 
+ System.out.println("Enter Date, Month and Year"); 
+ try 
+ { 
+ Scanner sc=new Scanner(System.in); 
+ 
+ day=sc.nextInt(); 
+ if(day<1 || day>31) 
+ throw new InvalidDateException(); 
+ month=sc.nextInt(); 
+ if(month>12 ||month<1) 
+ throw new InvalidDateException(); 
+ year=sc.nextInt(); 
+ if(year>10000 ||year<1000) 
+ throw new InvalidDateException(); 
+ } 
+ catch(InvalidDateException e) 
+ {
+System.out.println("Invalid Date entered"); 
+ System.exit(0); 
+ } 
+ catch(Exception e) 
+ { 
+ System.out.println("Enter Valid Date"); 
+ System.exit(0); 
+ } 
+ } 
+ public void display() 
+ { 
+ System.out.println("Entered Date is "+day+":"+month+":"+year); 
+ } 
+ public static void main(String args[]) 
+ { 
+ MyDate ob=new MyDate(); 
+ ob.accept(); 
+ ob.display(); 
+ } 
+}
+
+import java.util.Scanner;
+public class Employee {
+int id;
+String name;
+String deptname;
+float salary;
+static int numberofobjects=0;
+Employee(){
+id=0;
+name="";
+deptname="";
+salary=0;
+}
+Employee(int id,String name,String deptname,float salary ){
+this.id=id;
+this.name=name;
+this.deptname=deptname;
+this.salary=salary;
+numberofobjects++;
+}
+public void display(){
+System.out.println("Employee Id :"+id);
+System.out.println("Employee name: "+name);
+System.out.println("Employee Department: "+deptname);
+System.out.println("Employee Salary :"+salary);
+}
+public static void main(String[] args){
+int n=0;
+Scanner sc=new Scanner(System.in);
+System.out.print("How many employees you want to enter :");
+n=sc.nextInt();
+Employee[] ob=new Employee[n];
+for(int i=0;i<n;i++){
+sc= new Scanner(System.in);
+System.out.println("Enter Id of employee "+(i+1)+" :");
+int id=sc.nextInt();
+System.out.println("Enter Name of employee "+(i+1)+" :");
+sc.nextLine();
+String name= sc.nextLine();
+System.out.println("Enter dept name of employee "+(i+1)+" :");
+String deptname=sc.nextLine();
+System.out.println("Enter salary of employee "+(i+1)+" :");
+float salary = sc.nextFloat();
+ob[i]=new Employee(id,name,deptname,salary);
+System.out.println("\nNumber of Objects : "+numberofobjects);
+
+}
+for(int i=0;i<n;i++)
+{
+ob[i].display();
+}
+}
+}
+
+

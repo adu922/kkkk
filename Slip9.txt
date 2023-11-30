@@ -1,0 +1,106 @@
+import java.util.*; 
+class Clock 
+{ 
+ int hours,minutes,seconds; 
+ Clock() 
+ { 
+ System.out.println("enter the time in HH MM SS format"); 
+ Scanner sc= new Scanner(System.in); 
+ this.hours = sc.nextInt(); 
+this.minutes = sc.nextInt(); 
+ this.seconds = sc.nextInt(); 
+ } 
+ void isTimeValid() 
+ { 
+ if(hours>=0 && hours<24 && minutes>0 &&minutes<60 
+&&seconds>0 && seconds<60) 
+ System.out.println("time is valid"); 
+ else 
+ System.out.println("time is not valid"); 
+ } 
+ void setTimeMode() 
+ { 
+ if(hours<12) 
+ { 
+ System.out.println("time =" 
++hours+":"+minutes+":"+seconds +" AM"); 
+ } 
+ else 
+ hours = hours-12; 
+ System.out.println("time =" 
++hours+":"+minutes+":"+seconds +" PM"); 
+ } 
+ public static void main(String args[]) 
+ { 
+ Clock c = new Clock(); 
+ c.isTimeValid(); 
+ c.setTimeMode(); 
+ } 
+}
+
+
+
+
+import java.util.*;
+interface ProductMarker {
+}
+class Product implements ProductMarker {
+ int id;
+ String name;
+int cost;
+int quantity;
+static int count = 0;
+Product() {
+  id = 0;
+ name = " ";
+ cost = 0;
+quantity = 0;
+ }
+Product(int id, String name, int cost, int quantity) 
+{
+ this.id = id;
+ this.name = name;
+ this.cost = cost;
+ this.quantity = quantity;
+ count++;
+ }
+}
+public class ProductDemo
+ {
+public static void main(String[] args) {
+  int count = 0;
+ Scanner a = new Scanner(System.in);
+ System.out.println("How many products?");
+ int number = a.nextInt();
+ System.out.println("\n");
+  Product products[] = new Product[number];
+  System.out.println("Enter Product data");
+   for (int k = 0; k < number; k++) {
+   System.out.println("Product Id ");
+   int id = a.nextInt();
+   System.out.println("Product name ");
+  String name = a.next();
+  System.out.println("Product cost ");
+  int cost = a.nextInt();
+ System.out.println("Product quantity ");
+  int quantity = a.nextInt();
+   System.out.println("\n");
+ products[k] = new Product(id, name, cost, quantity);
+  count++;
+  }
+ if (products[0] instanceof ProductMarker) {
+   System.out.println("Class is using ProductMarker");
+ }
+   System.out.println("Product details\n");
+   for (Product product : products)
+ {
+  System.out.println("Product Id " + product.id);
+     System.out.println("Product name " + product.name);
+   System.out.println("Product cost " + product.cost);
+   System.out.println("Product quantity " + product.quantity);
+   System.out.println("\n");
+  }
+ System.out.println("Total objects: " + Product.count);
+ }
+}
+

@@ -1,0 +1,95 @@
+import java.util.Scanner;
+class SortStrings
+ {
+ public static void main(String args[]) 
+{
+ String temp;
+ Scanner SC = new Scanner(System.in);
+ System.out.print("Enter the value of N: ");
+ int N = SC.nextInt();
+  SC.nextLine();
+  String names[] = new String[N];
+  System.out.println("Enter names: ");
+  for (int i = 0; i < N; i++) {
+System.out.print("Enter name [ " + (i + 1) + " ]: ");
+names[i] = SC.nextLine();
+}
+for (int i = 0; i < N - 1; i++) {
+for (int j = 0; j < N - 1 - i; j++) {
+ if (names[j].compareTo(names[j + 1]) > 0)
+ {
+ temp = names[j];
+names[j] = names[j + 1];
+ names[j + 1] = temp;
+ }
+ }
+ }
+ System.out.println("\nSorted names are in Ascending Order: ");
+for (int i = 0; i < N; i++) 
+System.out.println(names[i]);
+}
+}
+}
+
+
+
+
+import java.util.Scanner;
+class Patient 
+{
+ String name;
+ int age;
+ int oxylevel;
+ int HRCTreport;
+ public Patient(String name, int age, int oxylevel, int HRCTreport)
+ {
+this.name = name;
+this.age = age;
+this.oxylevel = oxylevel;
+this.HRCTreport = HRCTreport;
+ }
+}
+public class Main 
+{
+public static void main(String[] args)
+ {
+Scanner sc = new Scanner(System.in);
+ System.out.println("How many patients do you want to insert:");
+  int number = sc.nextInt();
+  Patient[] patients = new Patient[number];
+ for (int j = 0; j < number; j++) {
+ System.out.println("Enter Name: ");
+ String name = sc.next();
+  System.out.println("Enter Age: ");
+   int age = sc.nextInt();
+ System.out.println("Enter oxygen level: ");
+  int oxylevel = sc.nextInt();
+ System.out.println("Enter HRCT report: ");
+int HRCTreport = sc.nextInt();
+patients[j] = new Patient(name, age, oxylevel, HRCTreport);
+ }
+for (int j = 0; j < number; j++) {
+ if (patients[j].oxylevel < 95 && patients[j].HRCTreport > 10) {
+try
+ {
+throw new Exception("Patient is Covid Positive(+) and needs to be hospitalized");
+}
+ catch (Exception e)
+ {
+System.out.println(e.getMessage());
+ }
+} 
+else
+ {
+ System.out.println("Name: " + patients[j].name);
+  System.out.println("Age: " + patients[j].age);
+ System.out.println("Oxygen level: " + patients[j].oxylevel);
+ System.out.println("HRCT report: " + patients[j].HRCTreport);
+  System.out.println();
+ }
+ }
+ 
+
+}
+}
+

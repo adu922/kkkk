@@ -1,0 +1,128 @@
+import java.util.Scanner; 
+import java.util.*; 
+class Zerono extends Exception 
+{} 
+class Prime 
+{ 
+ static int count=0; 
+ public static void main(String args[]) 
+ { 
+ int no,i,j; 
+ Scanner sc=new Scanner(System.in); 
+ try 
+ { 
+ System.out.println("enter no"); 
+ no=sc.nextInt(); 
+ if(no==0) 
+ throw new Zerono(); 
+ if(no>0) 
+ { 
+ for(i=2;i<=no/2;i++) 
+ {
+if(no%i==0) 
+ { 
+ count++; 
+ } 
+ } 
+ } 
+ if(count==0) 
+ System.out.println("No is Prime"); 
+ else 
+ System.out.println("Not a Prime number"); 
+ } 
+ catch(Zerono ob) 
+ { 
+ System.out.println("no can not be zero"); 
+ } 
+ } 
+}
+
+
+
+
+packageAssignment2.SY;
+import
+java.io.BufferedReader;
+importjava.io.*;
+public class
+SYClass
+{
+publicintct,mt,et;
+publicvoidget()throwsIOException{
+System.out.println("Enter marks of students for computer,maths and electronics subject out of 200");
+BufferedReaderbr=newBufferedReader(newInputStreamReader(System.in));
+ct=Integer.parseInt(br.readLine());
+mt=Integer.parseInt(br.readLine());
+et=Integer.parseInt(br.readLine());
+}
+}
+
+
+Program2:
+package
+Assignment2.TY;
+importjava.io.*;
+publicclassTYClass{
+public int tm,pm;
+public voidget()throwsIOException{
+System.out.println("Enter the marks of the theory out of 400 andpracticals out of 200: ");
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+tm=Integer.parseInt(br.readLine());
+pm=Integer.parseInt(br.readLine());
+}
+}
+
+Program3:
+package
+Assignment2;
+import Assignment2.SY.*;
+import Assignment2.TY.*;
+importjava.io.*;
+class StudentInfo{
+int rollno;
+String name,grade;
+public float gt,tyt,syt; 
+public floatper;
+public voidget()throwsIOException{
+System.out.println("Enter roll number and name of the student: ");
+BufferedReaderbr=new BufferedReader(new InputStreamReader(System.in));
+rollno=Integer.parseInt(br.readLine());
+name=br.readLine();
+}
+}
+public class StudentMarks{
+public static void main(String[]args) throwsIOException{
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+System.out.println("Enter thenumberof students:");
+int n=Integer.parseInt(br.readLine());
+SYClass sy[]=new SYClass[n];
+TYClass ty[]=new TYClass[n];
+StudentInfosi[]=new StudentInfo[n];
+for(int i=0;i<n;i++)
+{
+si[i]=new
+StudentInfo();
+sy[i]=new SYClass();
+ty[i]=new TYClass();
+si[i].get();
+sy[i].get();
+ty[i].get();
+si[i].syt=sy[i].ct+sy[i].et+sy[i].mt;
+si[i].tyt=ty[i].pm+ty[i].tm;
+si[i].gt=si[i].syt+si[i].tyt;
+si[i].per=(si[i].gt/1200)*100;
+if(si[i].per>=70)si[i].grade="A";
+else if(si[i].per>=60)
+si[i].grade="B";elseif(si[i].per>=50)si[i].grade="C";
+else if(si[i].per>=40)
+si[i].grade="Pass";
+else
+si[i].grade="Fail";
+}
+System.out.println("RollNo\tName\tSyTotal\tTyTotal\tGrandTotal\tPercentage\tGrade");
+for(int i=0;i<n;i++)
+{
+System.out.println(si[i].rollno+"\t"+si[i].name+"\t"+si[i].syt+"\t"+si[i].tyt+"\t"+si[i].gt+"\t\t"+si[i].per+"\t\t"+si[i].grade);
+}
+}
+}

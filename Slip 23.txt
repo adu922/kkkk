@@ -1,0 +1,107 @@
+public class Ass1_SetB_b
+   {
+       private int x;
+       Ass1_SetB_b()
+       {
+           x = 0;
+       }
+       Ass1_SetB_b(int x)
+       {
+           this.x = x;
+       }
+       void isZero()
+       {
+           if(x==0)
+               System.out.println("The number is Zero");
+       }
+       void isPositive()
+       {
+           if(x>0)
+               System.out.println("The number is Positive");
+       }
+       void isNegative()
+       {
+           if(x<0)
+               System.out.println("The number is Negative");
+       }
+       void isOdd()
+       {
+           if(x%2!=0)
+               System.out.println("The number is Odd");
+       }
+       void isEven()
+       {
+           if(x%2==0)
+               System.out.println("The number is Even");
+       }
+       public static void main(String [] args) throws ArrayIndexOutOfBoundsException
+       {
+           int num=Integer.parseInt(args[0]);
+           Ass1_SetB_b obj=new Ass1_SetB_b(num);
+           obj.isNegative();
+           obj.isPositive();
+           obj.isEven();
+           obj.isOdd();
+           obj.isZero();  
+   } }
+
+
+import javax.swing.*; 
+import java.util.*; 
+import java.text.*; 
+import java.awt.*; 
+import java.awt.event.*; 
+class slip23_2 extends KeyAdapter 
+{ 
+ JLabel l1,l2,l3; 
+ JTextField t1,t2,t3; 
+ slip23_2() 
+ { 
+ JFrame ob=new JFrame(); 
+ l1=new JLabel("US Dollars"); 
+ l2=new JLabel("Singapore Dollars"); 
+ l3=new JLabel("Euros"); 
+ t1=new JTextField(10); 
+ t2=new JTextField(10); 
+ t3=new JTextField(10); 
+ ob.add(l1); ob.add(t1); 
+ ob.add(l2); ob.add(t2); 
+ ob.add(l3); ob.add(t3); 
+ ob.setVisible(true); 
+t1.addKeyListener(this); 
+ ob.setLayout(new FlowLayout()); 
+ ob.setSize(400,400); 
+ ob.setDefaultCloseOperation(3); 
+ } 
+ 
+ public void keyReleased(KeyEvent ke) 
+ { 
+ try 
+ { 
+ Double USD=Double.parseDouble(t1.getText()); 
+ Double S=1.41; 
+ Double E=0.92; 
+ //Double sgd =Double.parseDouble(t1.getText()); 
+ Double SGD= USD * S; 
+//Double euro =Double.parseDouble(t1.getText());
+ Formatter fob=new Formatter(); 
+ fob.format("%.2f",SGD); 
+ Double Euro=USD * E; 
+ fob.format("%.2f",Euro); 
+ t2.setText(""+SGD); 
+ t3.setText(""+Euro); 
+ 
+ } 
+ catch(Exception e) 
+ { 
+ System.out.println("Enter Vaules in Box"); 
+ } 
+ 
+ } 
+ public static void main(String []args) 
+ { 
+ slip23_2 ob=new slip23_2(); 
+ Scanner sc=new Scanner(System.in); 
+ 
+ } 
+ }

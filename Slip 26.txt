@@ -1,0 +1,113 @@
+import java.util.Scanner;
+    public class ItemClass
+ {
+        int item_number;
+        String item_name;
+        int item_price;
+        static int numberofobjects=0;
+        ItemClass()
+        {
+            item_number=0;
+            item_name="";
+            item_price=0;
+        }
+        ItemClass(int item_number,String item_name,int item_price)
+        {
+            this.item_number=item_number;
+            this.item_name=item_name;
+            this.item_price=item_price;
+            numberofobjects++;
+        }
+        public void display(){
+            System.out.println("ItemClass item_number :"+item_number);
+            System.out.println("ItemClass item_name: "+item_name);
+            System.out.println("ItemClass price: "+item_price);
+        }
+        public static void main(String[] args){
+            int n=0;
+            Scanner sc=new Scanner(System.in);
+            System.out.print("How many Items you want to enter :");
+            n=sc.nextInt();
+            ItemClass[] ob = new ItemClass[n];
+            for(int i=0;i<n;i++)
+            {
+                sc= new Scanner(System.in);
+                System.out.println("Enter item_number of item "+(i+1)+" :");
+                int item_number=sc.nextInt();
+                System.out.println("Enter item_name of item "+(i+1)+" :");
+                String item_name= sc.next();
+                System.out.println("Enter Item price of item "+(i+1)+" :");
+                int item_price=sc.nextInt();
+                ob[i] = new ItemClass(item_number,item_name,item_price);
+                System.out.println("\nNumber of Objects :"+numberofobjects);
+            }
+            for(int i=0;i<n;i++)
+            {
+                ob[i].display();   }  }  }
+
+import java.io.*; 
+import java.util.*; 
+ 
+ class Donor 
+{ 
+ String name, address,group; 
+ int age, contact, lod; 
+ 
+ public Donor(String Name,String address, String group,int age,int contact,int lod) 
+ { 
+ this.name=name; 
+ this.address=address; 
+ this.group=group; 
+ this.age=age; 
+this .contact=contact; 
+ this.lod=lod; 
+ } 
+ 
+ public static void main(String args[]) 
+ { 
+ Scanner s=new Scanner(System.in); 
+ System.out.println("Enter how many records you want"); 
+ int n=s.nextInt(); 
+try 
+{ 
+ObjectOutputStream o=new ObjectOutputStream(new FileOutputStream("save.txt")); 
+Donor d[]=new Donor[n]; 
+for(int i=0;i<n;i++) 
+{ 
+ System.out.println("Name: "); 
+ String name=s.next(); 
+ System.out.println("Age: "); 
+ int age=s.nextInt(); 
+ System.out.println("Address: "); 
+ String address=s.next(); 
+ System.out.println("Contact: "); 
+ String contact=s.next(); 
+ System.out.println("Group: "); 
+ String group=s.next(); 
+ System.out.println("Last donation: "); 
+ int lod=s.nextInt(); 
+ o.writeObject(d[i]); 
+} 
+} 
+catch(IOException e) 
+{ 
+System.out.println(e); 
+} 
+try 
+{ 
+ObjectInputStream z=new ObjectInputStream(new FileInputStream("save.txt")); 
+for(int i=0;i<n;i++) 
+{ 
+Donor d=(Donor)z.readObject(); 
+if(d.group.equals("A+ve")&&d.lod>=6) 
+System.out.println(d); 
+} 
+} 
+catch(Exception e) 
+{ 
+ System.out.println(e); 
+}
+} 
+}
+
+

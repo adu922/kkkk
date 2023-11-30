@@ -1,0 +1,144 @@
+import java.util.*; 
+class college 
+{ 
+ int no; 
+ String name; 
+ String addr; 
+} 
+class Dept extends college 
+{ 
+ int dno; 
+ String dname; 
+ Scanner sc = new Scanner(System.in); 
+ public void accept() 
+ { 
+ System.out.println("enter no"); 
+ no=sc.nextInt(); 
+ System.out.println("enter name"); 
+ name=sc.next(); 
+ System.out.println("enter college address"); 
+ addr=sc.next(); 
+ System.out.println("enter depatrment no"); 
+ dno=sc.nextInt(); 
+ System.out.println("enter department name"); 
+ dname=sc.next(); 
+ } 
+ public void display() 
+ { 
+ System.out.println("college no"+no); 
+ System.out.println("college name"+name); 
+ System.out.println("college address"+addr); 
+ System.out.println("department number"+dno); 
+ System.out.println("department number"+dname); 
+ } 
+ public static void main(String a[]) 
+ { 
+ Dept ob=new Dept(); 
+ ob.accept(); 
+ ob.display();
+}
+}
+
+
+
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+public class myevent extends Applet implements ActionListener
+{
+Label   l1,l2,l3;
+Button b1,b2,b3,b4,b5;
+TextField t1,t2,t3;
+ 
+public void init()
+{
+setLayout(null);
+ 
+l1 = new Label(“Enter the first value”);
+l2 = new Label(“Enter the second value”);
+l3 = new Label(“Result”);
+ 
+t1 = new TextField(30);
+t2 = new TextField(30);
+t3 = new TextField(30);
+ 
+ 
+b1 = new Button(“ADDITION”);
+b2 = new Button(“MULTIPLICATION”);
+b3 = new Button(“SUBTRACTION”);
+b4 = new Button(“DivISION”);
+b5 = new Button(“CLEAR”);
+ add(t1);
+add(t2);
+add(t3);
+ 
+add(l1);
+add(l3);
+add(l2);
+ 
+add(b1);
+add(b2);
+add(b3);
+add(b4);
+add(b5);
+ 
+l1.setBounds(50,100,150,30);
+l2.setBounds(50,150,150,30);
+l3.setBounds(50,200,150,30);
+t1.setBounds(250,100,150,30);
+t2.setBounds(250,150,150,30);
+t3.setBounds(250,200,150,30);
+
+ 
+b1.setBounds(230,240,100,30);
+b2.setBounds(330,240,100,30);
+b3.setBounds(430,240,100,30);
+b4.setBounds(530,240,100,30);
+b5.setBounds(630,240,100,30);
+ 
+b1.addActionListener(this);
+b2.addActionListener(this);
+b3.addActionListener(this);
+b4.addActionListener(this);
+b5.addActionListener(this);
+}
+public void actionPerformed(ActionEvent e)
+{
+if(e.getActionCommand()==”ADDITION”)
+{
+int a = Integer.parseInt(t1.getText());
+int b = Integer.parseInt(t2.getText());
+int c = a+b;
+t3.setText(String.valueOf(c));
+}
+if(e.getActionCommand()==”MULTIPLICATION”)
+{
+int a = Integer.parseInt(t1.getText());
+int b = Integer.parseInt(t2.getText());
+int c = a*b;
+t3.setText(String.valueOf(c));
+}
+if(e.getActionCommand()==”SUBTRACTION”)
+{
+int a = Integer.parseInt(t1.getText());
+int b = Integer.parseInt(t2.getText());
+int c = a-b;
+t3.setText(String.valueOf(c));
+}
+if(e.getActionCommand()==”DivISION”)
+{
+int a = Integer.parseInt(t1.getText());
+int b = Integer.parseInt(t2.getText());
+int c = a/b;
+t3.setText(String.valueOf(c));
+}
+if(e.getActionCommand()==”CLEAR”)
+{
+t1.setText(“”);
+t2.setText(“”);
+t3.setText(“”);
+}
+}
+}
+ 
+
